@@ -1,0 +1,19 @@
+.vercel
+.env
+.agents/
+.claude/
+.playwright-mcp/
+_Archive/
+*.log
+*.py
+mebelista-marketing/
+price_monitor/
+Instagram/
+CHAT_HISTORY.md
+install_service.ps1
+Шкафы/
+Прихожии/
+Комоды/
+Статья/
+дсв лого/
+Карточки/
