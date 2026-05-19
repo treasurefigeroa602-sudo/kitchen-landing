@@ -99,26 +99,73 @@
     </style>
 </head>
 <body class="antialiased selection:bg-primary-container selection:text-on-primary-container">
-<!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-xl flex justify-between items-center px-8 py-6 max-w-full mx-auto">
-<div class="flex items-center gap-12">
-<a class="text-2xl font-serif italic text-amber-400" href="#">Mebelista</a>
-<div class="hidden md:flex gap-8">
-<a class="font-serif text-amber-400 border-b border-amber-400 pb-1 hover:text-amber-200 transition-colors duration-300" href="#">Collections</a>
-<a class="font-serif text-slate-300 hover:text-amber-200 transition-colors duration-300" href="#">Craftsmanship</a>
-<a class="font-serif text-slate-300 hover:text-amber-200 transition-colors duration-300" href="#">Showroom</a>
-<a class="font-serif text-slate-300 hover:text-amber-200 transition-colors duration-300" href="#">About</a>
-</div>
-</div>
-<div class="flex items-center gap-6">
-<a class="font-serif text-amber-400 text-on-surface hover:text-amber-200 transition-colors duration-300 active:opacity-80 active:scale-95" href="tel:+375291640192">
-                +375 29 164-01-92
-            </a>
-</div>
-</nav>
+<!-- Шапка сайта -->
+<header class="fixed top-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-xl border-b border-outline-variant/10">
+  <div class="flex items-center justify-between px-4 md:px-8 h-14 relative">
+
+    <!-- Кнопка гамбургер (только мобильная) -->
+    <button id="menuToggle" aria-label="Открыть меню" class="md:hidden flex items-center gap-2 text-on-surface hover:text-primary transition-colors active:opacity-70">
+      <svg id="iconBurger" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+        <line x1="3" y1="6" x2="21" y2="6" stroke-linecap="round"/>
+        <line x1="3" y1="12" x2="21" y2="12" stroke-linecap="round"/>
+        <line x1="3" y1="18" x2="21" y2="18" stroke-linecap="round"/>
+      </svg>
+      <svg id="iconClose" class="hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+        <line x1="18" y1="6" x2="6" y2="18" stroke-linecap="round"/>
+        <line x1="6" y1="6" x2="18" y2="18" stroke-linecap="round"/>
+      </svg>
+      <span class="font-bold text-xs tracking-[0.15em] uppercase">МЕНЮ</span>
+    </button>
+
+    <!-- Логотип: центр на мобильном, левый край на десктопе -->
+    <a href="#" class="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 font-serif italic text-xl text-primary whitespace-nowrap">Mebelista</a>
+
+    <!-- Десктопная навигация -->
+    <nav class="hidden md:flex items-center gap-8">
+      <a class="text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Каталог</a>
+      <a class="text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Портфолио</a>
+      <a class="text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">О компании</a>
+      <a class="text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Контакты</a>
+    </nav>
+
+    <!-- Правая зона: иконка телефона (моб) / номер (десктоп) -->
+    <div class="flex items-center">
+      <a href="tel:+375291640192" aria-label="Позвонить" class="md:hidden text-on-surface hover:text-primary transition-colors p-1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 6.75z"/>
+        </svg>
+      </a>
+      <a class="hidden md:inline font-serif text-amber-400 hover:text-amber-200 transition-colors duration-300" href="tel:+375291640192">+375 29 164-01-92</a>
+    </div>
+  </div>
+
+  <!-- Мобильное выпадающее меню -->
+  <div id="mobileMenu" class="hidden md:hidden bg-surface border-t border-outline-variant/20">
+    <nav class="flex flex-col">
+      <a href="#" class="flex items-center justify-between px-5 py-4 border-b border-outline-variant/15 text-on-surface hover:text-primary font-medium transition-colors">
+        Каталог кухонь <span class="text-outline text-xl leading-none">›</span>
+      </a>
+      <a href="#" class="flex items-center justify-between px-5 py-4 border-b border-outline-variant/15 text-on-surface hover:text-primary font-medium transition-colors">
+        Портфолио
+      </a>
+      <a href="#" class="flex items-center justify-between px-5 py-4 border-b border-outline-variant/15 text-on-surface hover:text-primary font-medium transition-colors">
+        О компании
+      </a>
+      <a href="#" class="flex items-center justify-between px-5 py-4 border-b border-outline-variant/15 text-on-surface hover:text-primary font-medium transition-colors">
+        Доставка и установка
+      </a>
+      <a href="#" class="flex items-center justify-between px-5 py-4 border-b border-outline-variant/15 text-on-surface hover:text-primary font-medium transition-colors">
+        Гарантии
+      </a>
+      <a href="tel:+375291640192" class="flex items-center justify-between px-5 py-4 text-on-surface hover:text-primary font-medium transition-colors">
+        Контакты
+      </a>
+    </nav>
+  </div>
+</header>
 <main>
 <!-- Hero Section -->
-<section class="relative min-h-screen pt-24 flex items-center overflow-hidden bg-surface">
+<section class="relative min-h-screen pt-14 flex items-center overflow-hidden bg-surface">
 <!-- Subtle Radial Gradient Vignette -->
 <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(40,40,61,0.15),transparent_70%)] pointer-events-none"></div>
 <div class="container mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
@@ -209,4 +256,28 @@
 <a class="font-sans text-xs tracking-widest uppercase text-slate-500 hover:text-white transition-opacity" href="#">Installation Guide</a>
 </div>
 </footer>
+
+<script>
+  // Мобильное меню — открытие/закрытие
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const iconBurger = document.getElementById('iconBurger');
+  const iconClose = document.getElementById('iconClose');
+
+  menuToggle.addEventListener('click', () => {
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden', isOpen);
+    iconBurger.classList.toggle('hidden', !isOpen);
+    iconClose.classList.toggle('hidden', isOpen);
+  });
+
+  // Закрытие меню при клике на любую ссылку внутри
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      iconBurger.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    });
+  });
+</script>
 </body></html>
